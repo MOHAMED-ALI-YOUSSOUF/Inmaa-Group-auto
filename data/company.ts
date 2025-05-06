@@ -32,7 +32,7 @@ export const companyInfo: CompanyInfo = {
   contact: {
     address: "Avenue Georges Pompidou, Djibouti-ville, République de Djibouti",
     phone: "+253 21 35 25 30",
-    whatsapp: "+25377331664",
+    whatsapp: "+25377214992",
     email: "contact@inmaagroup.dj",
     hours: "Lun - Ven: 8h00 - 17h00 | Sam: 8h00 - 12h00"
   },

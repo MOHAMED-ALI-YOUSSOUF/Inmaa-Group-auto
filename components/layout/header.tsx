@@ -54,7 +54,7 @@ export function Header() {
             scrolled ? "text-blue-700" : "text-white"
           )}
         >
-          Inmaa Group
+          Lootha General Trading
         </Link>
 
         {/* Desktop Navigation */}
