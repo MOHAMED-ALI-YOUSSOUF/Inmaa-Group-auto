@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { Car } from "@/data/cars";
@@ -33,10 +33,16 @@ export function CarFilters({ cars, onFilterChange }: CarFiltersProps) {
     selectedBrands: [],
     priceRange: [minAvailablePrice, maxAvailablePrice],
   });
-  
+
   const [showBrands, setShowBrands] = useState(false);
 
-  // Apply filters to cars
+  const latestFilter = useRef(onFilterChange);
+
+  useEffect(() => {
+    latestFilter.current = onFilterChange;
+  }, [onFilterChange]);
+
+  // Apply filters to cars (this should only run when filters or cars change)
   useEffect(() => {
     const filteredCars = cars.filter(car => {
       // Filter by brand
@@ -49,9 +55,13 @@ export function CarFilters({ cars, onFilterChange }: CarFiltersProps) {
       
       return brandMatch && priceMatch;
     });
-    
-    onFilterChange(filteredCars);
-  }, [filters, cars, onFilterChange]);
+
+    // Only trigger onFilterChange if filteredCars has changed
+    if (filteredCars.length !== cars.length) {
+      latestFilter.current(filteredCars);
+    }
+  }, [filters, cars]); // Dependency array ensures this effect runs only when filters or cars change
+
 
   // Toggle brand selection
   const toggleBrand = (brand: string) => {

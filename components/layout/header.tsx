@@ -35,6 +35,10 @@ export function Header() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+  
 
   return (
     <header
