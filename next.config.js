@@ -6,11 +6,17 @@ const nextConfig = {
   },
   images: {
      unoptimized: true ,
-     domains: [
-      'www.netcarshow.com',
-      'imgd.aeplcdn.com',
-      // ajoute ici tous les domaines des images que tu utilises
+     remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'netcarshow',
+      },
+      {
+        protocol: 'https',
+        hostname: 'imgd.aeplcdn',
+      },
     ],
+     
      
 
   },
