@@ -8,6 +8,7 @@ import { Calendar, Fuel, ArrowLeft, Send } from "lucide-react";
 import { Car } from "@/data/cars";
 import { companyInfo } from "@/data/company";
 import { Icons } from "@/components/shared/icons";
+import { PageHeader } from "../layout/page-header";
 
 interface CarDetailProps {
   car: Car;
@@ -31,7 +32,8 @@ export function CarDetail({ car, type }: CarDetailProps) {
   const whatsappLink = `https://wa.me/${companyInfo.contact.whatsapp.replace(/\+/g, '')}?text=${encodeURIComponent(whatsappMessage)}`;
 
   return (
-    <div className="container mx-auto px-4 py-10">
+
+      <div className="container mx-auto px-4 py-10">
       <Link href={backLink} className="inline-flex items-center text-blue-700 hover:text-blue-900 mb-6">
         <ArrowLeft size={16} className="mr-2" />
         {backLinkText}

@@ -55,7 +55,7 @@ export function Header() {
           href="/"
           className={cn(
             "text-2xl font-bold transition-colors duration-300",
-            scrolled ? "text-blue-700" : "text-white"
+            scrolled ? "text-blue-700" : "text-white bg-black/50 rounded-md px-2 py-1"
           )}
         >
           Inmaa Group
@@ -75,7 +75,7 @@ export function Header() {
                     : "text-white bg-white/20"
                   : scrolled
                     ? "text-gray-800 hover:text-blue-700 hover:bg-blue-50"
-                    : "text-white/90 hover:text-white hover:bg-white/10"
+                    : "text-black/100 bg-white/5 hover:text-white hover:bg-white/10"
               )}
             >
               {link.name}
@@ -101,7 +101,8 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="fixed inset-0 bg-blue-900/95 flex flex-col justify-center items-center md:hidden">
+          <div className="fixed top-0 left-0 w-full h-screen bg-blue-900/95 flex flex-col justify-center items-center md:hidden z-">
+
             <nav className="flex flex-col items-center space-y-6">
               {navLinks.map((link) => (
                 <Link
